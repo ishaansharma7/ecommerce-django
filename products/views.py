@@ -30,6 +30,6 @@ def place_order(request, pk):
         user = request.user
         product = Product.objects.get(pk=pk)
         order = Order.objects.create(product=product, ordered_by=user)
-        return HttpResponse('order placed successfully')
+        return redirect('products_app:purchased')
     else:
         return redirect('accounts_app:login')

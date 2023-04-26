@@ -8,7 +8,7 @@ app_name = 'accounts_app'
 urlpatterns = [
     path('test/', login_success_index, name='done_login'),
     path('login/', CustomLoginView.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(next_page='accounts_app:login'), name='logout'),
+    path('logout/', LogoutView.as_view(next_page='products_app:main_listing'), name='logout'),
     path('register/', RegisterView.as_view(), name='register'),
     path('redirecting/', after_login_redirect, name='al_redirect'),
 ]

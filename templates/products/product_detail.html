@@ -3,11 +3,22 @@
 
 {% block body_block %}
 
-<body>
-    <h1>{{ item.name }}</h1>
-    <p>Price: ₹{{ item.price }}</p>
-    <p>Description: {{ item.details }}</p>
-    <a href="{% url 'products_app:place_order' pk=item.id %}">place order</a>
-</body>
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="{{ item.image.url }}" alt="{{ item.name }}" class="img-fluid">
+      </div>
+      <div class="col-md-6">
+        <h1>{{ item.name }}</h1>
+        <p><strong>Description:</strong> {{ item.details }}</p>
+        <p><strong>Price:</strong> {{ item.price }}</p>
+        <a href="{% url 'products_app:place_order' pk=item.id %}">
+            <button type="button" class="btn btn-primary">Buy now</button>
+        </a>
+        
+        <!-- Additional product details -->
+      </div>
+    </div>
+  </div>
 
 {% endblock %}
