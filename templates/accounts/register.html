@@ -1,0 +1,7 @@
+<h1 class="header-bar">Register</h1>
+<form id="form_dj" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input style="margin-top:10px;" class="button" type="submit" value="Register">
+</form>
+<p style="margin-left: 20px;">Already have an account? <a href="{% url 'accounts_app:login' %}">Login</a></p>
