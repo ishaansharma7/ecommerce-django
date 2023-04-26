@@ -49,7 +49,7 @@ class AllUsers(AbstractBaseUser, PermissionsMixin):
     objects = CustomAccountManager()
 
     def __str__(self):
-        return self.first_name
+        return self.email
     
     def clean(self):
         try:
