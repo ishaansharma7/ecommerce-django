@@ -15,6 +15,7 @@ class Product(models.Model):
     details = models.TextField()
     price = models.PositiveIntegerField()
     category = models.ForeignKey(ProductCategory, on_delete=models.SET_NULL, null=True)
+    img_link = models.URLField(blank=True)
 
     def __str__(self):
         return self.name

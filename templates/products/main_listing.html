@@ -9,7 +9,7 @@
       {% endif %}
       <div class="col-sm-4">
         <!-- Content for item -->
-        <img src="https://m.media-amazon.com/images/I/71E5zB1qbIL._SX466_.jpg" alt="{{ item.name }}" width="200" height="200">
+        <img src="{{ item.img_link }}" alt="{{ item.name }}" width="200" height="200">
         <a href="{% url 'products_app:product_detail' pk=item.id %}"><h2>{{ item.name }}</h2></a>
             <p>Price: ₹{{ item.price }}</p>
             <p>Description: {{ item.details }}</p>
