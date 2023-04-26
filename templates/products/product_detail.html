@@ -11,7 +11,7 @@
       <div class="col-md-6">
         <h1>{{ item.name }}</h1>
         <p><strong>Description:</strong> {{ item.details }}</p>
-        <p><strong>Price:</strong> {{ item.price }}</p>
+        <p><strong>Price:</strong> ₹{{ item.price }}</p>
         <a href="{% url 'products_app:place_order' pk=item.id %}">
             <button type="button" class="btn btn-primary">Buy now</button>
         </a>

@@ -21,13 +21,13 @@ class RegisterView(FormView):
             login(self.request, user)
         return super(RegisterView, self).form_valid(form)
     
-    def form_invalid(self, form):
-        print('invalid form----')
-        errors = form.errors.as_data()
-        print(errors)
-        invalid_fields = list(errors.keys())
-        print(invalid_fields)
-        return HttpResponse('invalid form')
+    # def form_invalid(self, form):
+    #     print('invalid form----')
+    #     errors = form.errors.as_data()
+    #     print(errors)
+    #     invalid_fields = list(errors.keys())
+    #     print(invalid_fields)
+    #     return HttpResponse('invalid form')
     
     def get(self, *args, **kwargs):     # an already logged in user will be redirected
         if self.request.user.is_authenticated:

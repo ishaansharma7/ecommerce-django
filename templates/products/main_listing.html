@@ -12,7 +12,7 @@
         <img src="{{ item.img_link }}" alt="{{ item.name }}" width="200" height="200">
         <a href="{% url 'products_app:product_detail' pk=item.id %}"><h2>{{ item.name }}</h2></a>
             <p>Price: ₹{{ item.price }}</p>
-            <p>Description: {{ item.details }}</p>
+            <p>Description: {{ item.details|truncatechars:200 }}</p>
             <a href="{% url 'products_app:product_detail' pk=item.id %}">full details</a>
       </div>
       {% if forloop.counter0|add:1|divisibleby:3 or forloop.last %}

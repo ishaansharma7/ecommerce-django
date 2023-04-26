@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Past orders{% endblock %}
+
+{% block body_block %}
+<div class="container">
+    <div class="row">
+        <!-- Item details section -->
+        <div class="col-md-6">
+            <h1>{{ item.name }}</h1>
+            <img src="{{ item.image_url }}" alt="{{ item.name }}" class="img-thumbnail">
+            <p><strong>Email:</strong> {{ item.email }}</p>
+            <p><strong>Name:</strong> {{ item.first_name }}</p>
+            <p><strong>Phone Number:</strong> {{ item.phone_number }}</p>
+            <p><strong>Address:</strong> {{ item.address }}</p>
+            <!-- Add any additional details here -->
+        </div>
+        <!-- List of records section -->
+        <div class="col-md-6">
+            <h2>Past orders</h2>
+            {% for record in past_orders %}
+            <div class="row">
+                    <div class="card">
+                        <!-- <img src="{{ record.product.img_link }}" alt="{{ record.name }}" class="card-img-top" width="200" height="200"> -->
+                        <div class="card-body">
+                            <a href="{% url 'products_app:product_detail' pk=record.product.id %}"><h5 class="card-title">{{ record.product.name }}</h5></a>
+                            <p class="card-text"><strong>Price:</strong> ₹{{ record.product.price }}</p>
+                            <p class="card-text"><strong>Details:</strong> {{ record.product.details|truncatechars:200 }}</p>
+                            <p class="card-text"><strong>Purchased On:</strong> {{ record.order_date }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

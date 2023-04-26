@@ -17,6 +17,9 @@ class SignUpForm(UserCreationForm):
             raise forms.ValidationError({'password': 'passwords does not match'})
         
         new_user = AllUsers.objects.create_user(email=self.cleaned_data['email'],
-                            first_name=self.cleaned_data['first_name'], password=password)
+                            first_name=self.cleaned_data['first_name'], 
+                            phone_number=self.cleaned_data['phone_number'],
+                            address=self.cleaned_data['address'],
+                            password=password)
 
         return new_user
